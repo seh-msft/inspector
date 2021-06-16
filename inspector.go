@@ -40,19 +40,19 @@ func main() {
 		fatal("err: api parse failed -", err)
 	}
 
-	fmt.Fprint(of, "A path ⇒ ", api.Paths["/some/kind/of/path"], "\n\n")
+	fmt.Fprint(bof, "A path ⇒ ", api.Paths["/some/kind/of/path"], "\n\n")
 
-	fmt.Fprint(of, "A method ⇒ ", api.Paths["/another/path/{someId}/{anotherId}"]["get"], "\n\n")
+	fmt.Fprint(bof, "A method ⇒ ", api.Paths["/another/path/{someId}/{anotherId}"]["get"], "\n\n")
 
-	fmt.Fprint(of, "Content of an HTTP 200 OK response ⇒ ", api.Paths["/elsewhere/{someId}/dosomething"]["post"].Responses["200"].Content, "\n\n")
+	fmt.Fprint(bof, "Content of an HTTP 200 OK response ⇒ ", api.Paths["/elsewhere/{someId}/dosomething"]["post"].Responses["200"].Content, "\n\n")
 
-	fmt.Fprint(of, "Scheme of a 200 OK JSON response ⇒ ", api.Paths["/account/{account}/products/{sku}"]["get"].Responses["200"].Content["application/json"]["schema"], "\n\n")
+	fmt.Fprint(bof, "Scheme of a 200 OK JSON response ⇒ ", api.Paths["/account/{account}/products/{sku}"]["get"].Responses["200"].Content["application/json"]["schema"], "\n\n")
 
-	fmt.Fprint(of, "Parameters available for a GET request ⇒ ", api.Paths["/account/{account}/products/{sku}"]["get"].Parameters, "\n\n")
+	fmt.Fprint(bof, "Parameters available for a GET request ⇒ ", api.Paths["/account/{account}/products/{sku}"]["get"].Parameters, "\n\n")
 
-	fmt.Fprint(of, "Body for the POST method request ⇒ ", api.Paths["/account/{account}/groups/add"]["post"].RequestBody, "\n\n\n")
+	fmt.Fprint(bof, "Body for the POST method request ⇒ ", api.Paths["/account/{account}/groups/add"]["post"].RequestBody, "\n\n\n")
 
-	fmt.Fprint(of, "A scheme definition ⇒ ", api.Components["schemas"]["Some.Kind.Of.Scheme"], "\n\n")
+	fmt.Fprint(bof, "A scheme definition ⇒ ", api.Components["schemas"]["Some.Kind.Of.Scheme"], "\n\n")
 }
 
 // Fatal - end program with an error message and newline
